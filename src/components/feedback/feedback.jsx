@@ -6,23 +6,46 @@ export class Feedback extends React.Component{
         neutral: 0,
         bad: 0
       };
+
+goodFeedback =()=>{
+    this.setState(
+        (prevState)=>{ 
+            return {good: prevState.good + 1}
+    }
+    ) 
+};
+neutralFeedback = ()=> {
+    this.setState(
+        (prevState)=> {return {neutral: prevState.neutral + 1}}
+    )
+};
+badFeedback = ()=> {
+this.setState(
+    (prevState)=>{
+        return {bad : prevState.bad + 1}
+    }
+)
+}
+
+
 render(){
     return <div className={css.section}>
         <h1>Оставьте отзыв</h1>
         <ul className={css.btnlist}>
-            <li className={css.btnlistitem}><button type='submit' className={css.btn} >хорошо</button></li>
-            <li className={css.btnlistitem}><button type='submit' className={css.btn} >средне</button></li>
-            <li className={css.btnlistitem}><button type='submit' className={css.btn} >плохо</button></li>
+            <li className={css.btnlistitem}><button type='button' className={css.btn} onClick={this.goodFeedback}>хорошо</button></li>
+            <li className={css.btnlistitem}><button type='button' className={css.btn} onClick={this.neutralFeedback}>средне</button></li>
+            <li className={css.btnlistitem}><button type='button' className={css.btn} onClick={this.badFeedback}>плохо</button></li>
         </ul>
         <h2>Cтатистика</h2>
         <ul>
-            <li><p>Xорошо:</p></li>
-            <li><p>Cредне:</p></li>
-            <li><p>Плохо:</p></li>
-            <li><p>Всего:</p></li>
-            <li><p>Хороших отзывов:</p></li>
+            <li><p>Xорошо:{this.state.good}</p></li>
+            <li><p>Cредне:{this.state.neutral}</p></li>
+            <li><p>Плохо:{this.state.bad}</p></li>
+            <li><p>Всего:{this.state.bad + this.state.neutral + this.state.good}</p></li>
+            <li><p>Хороших отзывов:{String((100 / (this.state.bad + this.state.neutral + this.state.good)) * this.state.good).split('.')[0]}%</p></li>
         </ul>
     </div>
     
 }
+
 }
