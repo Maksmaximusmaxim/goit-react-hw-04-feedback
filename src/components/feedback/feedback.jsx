@@ -27,11 +27,12 @@ this.setState(
 )
 }
  countTotalFeedback=()=>{
-   return this.state.bad + this.state.neutral + this.state.good
+   return this.state.bad + this.state.neutral + this.state.good;   
 };
 countPositiveFeedbackPercentage = ()=>{
-    return String((100 / (this.state.bad + this.state.neutral + this.state.good)) * this.state.good).split('.')[0]
+    return String((100 / (this.state.bad + this.state.neutral + this.state.good)) * this.state.good + 0).split('.')[0]
 }
+
 
 render(){
 
@@ -48,7 +49,7 @@ render(){
             <li><p>Cредне:{this.state.neutral}</p></li>
             <li><p>Плохо:{this.state.bad}</p></li>
             <li><p>Всего:{this.countTotalFeedback()}</p></li>
-            <li><p>Хороших отзывов:{this.countPositiveFeedbackPercentage()}%</p></li>
+            <li><p>Хороших отзывов:{this.countPositiveFeedbackPercentage() ==="NaN" ? `0`:this.countPositiveFeedbackPercentage()}%</p></li>
         </ul>
     </div>
     
