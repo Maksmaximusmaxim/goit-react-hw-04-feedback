@@ -1,0 +1,26 @@
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+}
+.btnlist{
+    display: flex;
+}
+.btnlistitem{
+    margin-right: 15px;
+}
+.btn{
+    padding: 10px 15px;
+    background-color: #fff;
+    border: 3px solid rgb(149, 146, 146);
+    border-radius: 15%;
+}
+.btn:hover{
+    border-color: black;
+    cursor: pointer;
+}
+.section{
+    margin-left: 10px;
+   
+}
