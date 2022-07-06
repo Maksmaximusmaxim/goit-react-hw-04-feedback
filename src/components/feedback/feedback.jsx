@@ -26,9 +26,13 @@ this.setState(
     }
 )
 }
+ countTotalFeedback=()=>{
+   return this.state.bad + this.state.neutral + this.state.good
+};
 
 
 render(){
+
     return <div className={css.section}>
         <h1>Оставьте отзыв</h1>
         <ul className={css.btnlist}>
@@ -41,7 +45,7 @@ render(){
             <li><p>Xорошо:{this.state.good}</p></li>
             <li><p>Cредне:{this.state.neutral}</p></li>
             <li><p>Плохо:{this.state.bad}</p></li>
-            <li><p>Всего:{this.state.bad + this.state.neutral + this.state.good}</p></li>
+            <li><p>Всего:{this.countTotalFeedback()}</p></li>
             <li><p>Хороших отзывов:{String((100 / (this.state.bad + this.state.neutral + this.state.good)) * this.state.good).split('.')[0]}%</p></li>
         </ul>
     </div>
