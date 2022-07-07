@@ -33,16 +33,19 @@ countPositiveFeedbackPercentage = ()=>{
 render(){
 
     return <div className={css.section}>
-      <Section title="Оставьте отзыв"/>
+      <Section title="Оставьте отзыв">
+        <FeedbackOptions options={options} onLeaveFeedback={this.onClick} />
+      </Section>
         
-        <FeedbackOptions options={options} onLeaveFeedback={this.onClick}  />
-        <Section title="Cтатистика"/>
+       
+      <Section title="Cтатистика"> 
         <Statistics good={this.state.good}
         neutral={this.state.neutral}
         bad={this.state.bad}
         total={this.countTotalFeedback()} 
-        positivePercentage={this.countPositiveFeedbackPercentage()} 
-        />
+        positivePercentage={this.countPositiveFeedbackPercentage()} />
+      </Section>
+       
     </div>
     
 }
