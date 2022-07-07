@@ -1,5 +1,9 @@
 import React from 'react';
 import css from 'components/feedback/feedback.module.css';
+import { Section } from 'components/Section/Section';
+import {Statistics} from 'components/statistics/Statistics';
+import {FeedbackOptions} from 'components/feedbackOptions/FeedbackOptions';
+const options = ['good', 'bad', 'neutral'];
 export class Feedback extends React.Component{
     state = {
         good: 0,
@@ -7,25 +11,17 @@ export class Feedback extends React.Component{
         bad: 0
       };
 
-goodFeedback =()=>{
-    this.setState(
-        (prevState)=>{ 
-            return {good: prevState.good + 1}
-    }
-    ) 
-};
-neutralFeedback = ()=> {
-    this.setState(
-        (prevState)=> {return {neutral: prevState.neutral + 1}}
-    )
-};
-badFeedback = ()=> {
-this.setState(
-    (prevState)=>{
-        return {bad : prevState.bad + 1}
-    }
-)
-}
+
+
+      onClick = event => {
+        const curText = event.currentTarget.textContent.toLowerCase();
+        this.setState(prevState => {
+          return {
+            [curText]: prevState[curText] + 1,
+          };
+        });
+      };
+ 
  countTotalFeedback=()=>{
    return this.state.bad + this.state.neutral + this.state.good;   
 };
@@ -37,20 +33,16 @@ countPositiveFeedbackPercentage = ()=>{
 render(){
 
     return <div className={css.section}>
-        <h1>Оставьте отзыв</h1>
-        <ul className={css.btnlist}>
-            <li className={css.btnlistitem}><button type='button' className={css.btn} onClick={this.goodFeedback}>хорошо</button></li>
-            <li className={css.btnlistitem}><button type='button' className={css.btn} onClick={this.neutralFeedback}>средне</button></li>
-            <li className={css.btnlistitem}><button type='button' className={css.btn} onClick={this.badFeedback}>плохо</button></li>
-        </ul>
-        <h2>Cтатистика</h2>
-        <ul>
-            <li><p>Xорошо:{this.state.good}</p></li>
-            <li><p>Cредне:{this.state.neutral}</p></li>
-            <li><p>Плохо:{this.state.bad}</p></li>
-            <li><p>Всего:{this.countTotalFeedback()}</p></li>
-            <li><p>Хороших отзывов:{this.countPositiveFeedbackPercentage() ==="NaN" ? `0`:this.countPositiveFeedbackPercentage()}%</p></li>
-        </ul>
+      <Section title="Оставьте отзыв"/>
+        
+        <FeedbackOptions options={options} onLeaveFeedback={this.onClick}  />
+        <Section title="Cтатистика"/>
+        <Statistics good={this.state.good}
+        neutral={this.state.neutral}
+        bad={this.state.bad}
+        total={this.countTotalFeedback()} 
+        positivePercentage={this.countPositiveFeedbackPercentage()} 
+        />
     </div>
     
 }
