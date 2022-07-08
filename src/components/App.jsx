@@ -29,11 +29,11 @@ countPositiveFeedbackPercentage = ()=>{
     return String((100 / (this.state.bad + this.state.neutral + this.state.good)) * this.state.good + 0).split('.')[0]
 }
 
-
 render(){
 
     return (
       <>
+      {/* <button type='button' onClick={console.log(this.countTotalFeedback())}>f</button> */}
       <Section title="Оставьте отзыв">
         
         <FeedbackOptions options={options} onLeaveFeedback={this.onClick} />
@@ -42,15 +42,17 @@ render(){
 
       <Section title="Cтатистика"> 
 
-        <Statistics good={this.state.good}
+{this.countTotalFeedback() === 0 ? (<Notification message="There is no feedback"/>) :  (<Statistics good={this.state.good}
         neutral={this.state.neutral}
         bad={this.state.bad}
         total={this.countTotalFeedback()} 
-        positivePercentage={this.countPositiveFeedbackPercentage()} />
+        positivePercentage={this.countPositiveFeedbackPercentage()} />)}
 
         </Section>
+        
+     
 
-      <Notification message="There is no feedback"/>
+      
       </>
     )
     
