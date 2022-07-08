@@ -34,14 +34,22 @@ render(){
 
     return (
       <>
-      <Section title="Оставьте отзыв"/>
+      <Section title="Оставьте отзыв">
+        
         <FeedbackOptions options={options} onLeaveFeedback={this.onClick} />
-      <Section title="Cтатистика"/> 
+
+        </Section>
+
+      <Section title="Cтатистика"> 
+
         <Statistics good={this.state.good}
         neutral={this.state.neutral}
         bad={this.state.bad}
         total={this.countTotalFeedback()} 
         positivePercentage={this.countPositiveFeedbackPercentage()} />
+
+        </Section>
+
       <Notification message="There is no feedback"/>
       </>
     )
