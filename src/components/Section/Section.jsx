@@ -6,7 +6,4 @@ export const Section = ({title, ch})=> {
     {ch}
     </section> )  
 
-         
-
-   
 }
