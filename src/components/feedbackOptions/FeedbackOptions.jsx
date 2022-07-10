@@ -5,3 +5,4 @@ export const FeedbackOptions = ({options,onLeaveFeedback})=>{
 {options.map(op =>{return <li key={op} className={css.btnlistitem}><button type='button' className={css.btn} onClick={onLeaveFeedback}>{op}</button></li>} )}
 </ul>
 }
+// FeedbackOptions.propTypes = {}
