@@ -1,8 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types'; 
-export const Notification =({message})=>{
- return <h3>{message}</h3>
-}
+import PropTypes from 'prop-types';
+export const Notification = ({ message }) => {
+  return <h3>{message}</h3>;
+};
 Notification.propTypes = {
-    message: PropTypes.string.isRequired,
-}
+  message: PropTypes.string.isRequired,
+};
