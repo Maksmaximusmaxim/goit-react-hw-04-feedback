@@ -3,7 +3,7 @@ import { Section } from 'components/Section/Section';
 import { Statistics } from 'components/statistics/Statistics';
 import { FeedbackOptions } from 'components/feedbackOptions/FeedbackOptions';
 import { Notification } from './Notification/Notification';
-const options = ['good', 'bad', 'neutral'];
+
 export class App extends React.Component {
   state = {
     good: 0,
@@ -32,9 +32,11 @@ export class App extends React.Component {
   };
 
   render() {
+    const options = Object.keys(this.state)
+    console.log(options)
     return (
       <>
-        {/* <button type='button' onClick={console.log(this.countTotalFeedback())}>f</button> */}
+     
         <Section title="Оставьте отзыв">
           <FeedbackOptions options={options} onLeaveFeedback={this.onClick} />
         </Section>

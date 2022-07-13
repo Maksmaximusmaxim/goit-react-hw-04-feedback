@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import css from 'components/feedbackOptions/FeedbackOptions.module.css';
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
+
   return (
     <ul className={css.btnlist}>
       {options.map(op => {
