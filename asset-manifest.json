@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Maksmaximusmaxim/goit-react-hw-04-feedback/static/css/main.5fb8740f.css",
+    "main.js": "/Maksmaximusmaxim/goit-react-hw-04-feedback/static/js/main.2fc04381.js",
+    "index.html": "/Maksmaximusmaxim/goit-react-hw-04-feedback/index.html",
+    "main.5fb8740f.css.map": "/Maksmaximusmaxim/goit-react-hw-04-feedback/static/css/main.5fb8740f.css.map",
+    "main.2fc04381.js.map": "/Maksmaximusmaxim/goit-react-hw-04-feedback/static/js/main.2fc04381.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5fb8740f.css",
+    "static/js/main.2fc04381.js"
+  ]
+}
